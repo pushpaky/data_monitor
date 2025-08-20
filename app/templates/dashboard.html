@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <!-- Toolbar -->
+  <header class="toolbar">
+    <img src="/static/images/elementurelogo.png" alt="Elementure Logo" class="logo" />
+    <h1>AQUESA DATA MONITOR</h1>
+  </header>
+
+  <!-- Page Layout -->
+  <div class="app-container">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+        <h2>Dashboard</h2>
+        <ul>
+          <li><a href="/fetch">Fetch Data</a></li>
+          <li><a href="/data-table">Data Table</a></li>
+          <li><a href="/duplicates">Duplicates</a></li>
+          <li><a href="/missing-data">Missing</a></li>
+          <li><a href="/device-status">Device Status</a></li>
+          <li><a href="/all-device-status">All Device Status</a></li>
+          <li><a href="/battery-status">Battery Status</a></li>
+        <li><a href="/email-scheduler">Email Scheduler</a></li>
+
+        </ul>
+      </aside>
+
+  <!-- Main Page -->
+  <main class="main-content">
+  
+  
+    
+    <!-- Description Section -->
+    <section class="description">
+
+      <p>
+        <strong>Aquesa</strong> is a DATA MONITOR APPLICATION designed to manage data
+        Get Data from DataBase, Generate the Graph for analysis, Device status information, Find out the Duplicate data,
+        Find out the Missing data and Battery Information with automated daily email reports.
+      </p>
+      <div style="margin-top: 20px; padding: 15px; background-color: rgba(40, 167, 69, 0.1); border-left: 4px solid #28a745; border-radius: 5px;">
+        <h3 style="color: #28a745; margin-top: 0;">📧 Automated Email Reports</h3>
+        <p>Daily reports are automatically sent every 24 hours at 8:00 AM for all configured devices, including:</p>
+        <ul style="margin-left: 20px;">
+          <li>Hourly consumption charts</li>
+          <li>Battery voltage monitoring</li>
+          <li>Raw data exports (CSV)</li>
+          <li>Battery status alerts</li>
+        </ul>
+      </div>
+    </section>
+    
+
+    <!-- Footer -->
+    <footer class="footer">
+      <p>&copy; 2025 Device Monitor System</p>
+    </footer>
+  </main>
+</div>
+
+<script src="/static/js/script.js"></script>
+</body>
+</html>
+

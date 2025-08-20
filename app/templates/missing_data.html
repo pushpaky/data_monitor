@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Missing Data</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <header class="toolbar">
+    <img src="/static/images/elementurelogo.png" alt="Elementure Logo" class="logo" />
+    <h1>AQUESA DATA MONITOR</h1>
+  </header>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/fetch">Fetch Data</a></li>
+        <li><a href="/data-table">Data Table</a></li>
+        <li><a href="/duplicates">Duplicate</a></li>
+        <li><a href="/missing-data">Missing</a></li>
+        <li><a href="/device-status">Device Status</a></li>
+        <li><a href="/all-device-status">All Device Status</a></li>
+        <li><a href="/battery-status">Battery Status</a></li>
+        <li><a href="/email-scheduler">Email Scheduler</a></li>
+
+
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="container">
+        <h2>Missing Records</h2>
+        <form id="dupForm">
+          <label for="device_id">Device ID:</label>
+          <input type="text" id="device_id" name="device_id" required />
+
+          <label for="start">Start Time (YYYY-MM-DD HH:MM:SS):</label>
+          <input type="text" id="start" name="start" required />
+
+          <label for="end">End Time (YYYY-MM-DD HH:MM:SS):</label>
+          <input type="text" id="end" name="end" required />
+
+          <button type="submit">Missing Data</button>
+        </form>
+
+        <div id="result" style="margin-top:20px;"></div>
+      </div>
+    </main>
+  </div>
+  <script src="/static/js/script_miss.js"></script>
+
+</body>
+</html>

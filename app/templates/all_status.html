@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Device Status</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <header class="toolbar">
+    <img src="/static/images/elementurelogo.png" alt="Elementure Logo" class="logo" />
+    <h1>AQUESA DATA MONITOR</h1>
+  </header>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/fetch">Fetch Data</a></li>
+        <li><a href="/data-table">Data Table</a></li>
+        <li><a href="/duplicates">Duplicate</a></li>
+        <li><a href="/missing-data">Missing</a></li>
+        <li><a href="/device-status">Device Status</a></li>
+        <li><a href="/all-device-status">All Device Status</a></li>
+        <li><a href="/battery-status">Battery Status</a></li>
+        <li><a href="/email-scheduler">Email Scheduler</a></li>
+
+
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="container">
+        <h2>All Devices Status</h2>
+
+        <div style="margin-bottom: 20px;">
+          <p>Click the button below to fetch the current status of <strong>ALL devices</strong> in the database.</p>
+          <p style="font-size: 0.9em; color: #666;">This will scan the entire database and show every device that has ever sent data, along with their current status.</p>
+        </div>
+
+        <form id="dupForm">
+          <button type="submit">Get Status</button>
+          <button type="button" id="clearCacheBtn" style="margin-left: 10px; background-color: #6c757d;" title="Force fresh data from database (cached for 5 minutes)">Clear Cache & Refresh</button>
+        </form>
+
+        <!-- Summary Section -->
+        <div id="statusSummary" style="display: none; margin: 20px 0; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid #0c305c;">
+          <h3 style="margin: 0 0 10px 0; color: #0c305c;">📊 Status Summary</h3>
+          <div style="display: flex; gap: 30px;">
+            <div>
+              <span style="color: #28a745; font-weight: bold;">🟢 Active:</span>
+              <span id="activeCount">0</span>
+            </div>
+            <div>
+              <span style="color: #ffc107; font-weight: bold;">🟡 Inactive:</span>
+              <span id="inactiveCount">0</span>
+            </div>
+            <div>
+              <span style="color: #0c305c; font-weight: bold;">📱 Total:</span>
+              <span id="totalCount">0</span>
+            </div>
+          </div>
+        </div>
+
+        <table id="statusTable" style="display: none;">
+          <thead>
+            <tr>
+              <th>Device ID</th>
+              <th>Status</th>
+              <th>Last Seen</th>
+              <th>Hours Since Last</th>
+              <th>Total Records</th>
+              <th>Inactive Duration</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Rows will be inserted dynamically -->
+          </tbody>
+        </table>
+
+
+      </div>
+    </main>
+  </div>
+  <script src="/static/js/script_all_status.js"></script>
+
+</body>
+</html>

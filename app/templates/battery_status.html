@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Battery Status</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <header class="toolbar">
+    <img src="/static/images/elementurelogo.png" alt="Elementure Logo" class="logo" />
+    <h1>AQUESA DATA MONITOR</h1>
+  </header>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/fetch">Fetch Data</a></li>
+        <li><a href="/data-table">Data Table</a></li>
+        <li><a href="/duplicates">Duplicate</a></li>
+        <li><a href="/missing-data">Missing</a></li>
+        <li><a href="/device-status">Device Status</a></li>
+        <li><a href="/all-device-status">All Device Status</a></li>
+        <li><a href="/battery-status">Battery Status</a></li>
+        <li><a href="/email-scheduler">Email Scheduler</a></li>
+
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="container">
+        <h2>Battery Status</h2>
+        <form id="batteryForm">
+          <label for="device_id">Device ID:</label>
+          <input type="text" id="device_id" required placeholder="Enter device ID">
+          <button type="submit">Check Battery</button>
+        </form>
+        
+        <div id="batteryResult" style="margin-top:20px;"></div>
+        
+      </div>
+    </main>
+  </div>
+  <script src="/static/js/script_battery.js"></script>
+
+</body>
+</html>

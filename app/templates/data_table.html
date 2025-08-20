@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Data Table View</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+  <style>
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 40px;
+      font-size: 14px;
+    }
+    
+    .data-table th,
+    .data-table td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: center;
+    }
+    
+    .data-table th {
+      background-color: #0c305c;
+      color: white;
+      font-weight: bold;
+      position: sticky;
+      top: 0;
+    }
+    
+    .data-table tr:nth-child(even) {
+      background-color: #f2f2f2;
+    }
+    
+    .data-table tr:hover {
+      background-color: #e8f4f8;
+    }
+    
+    .table-container {
+      max-height: 800px;
+      overflow-y: auto;
+      border: 1px solid #ddd;
+      border-radius: 5px;
+    }
+    
+    .table-info {
+      margin: 10px 0;
+      padding: 10px;
+      background-color: #e8f4f8;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    .pagination {
+      margin: 20px 0;
+      text-align: center;
+    }
+    
+    .pagination button {
+      margin: 0 5px;
+      padding: 8px 12px;
+      border: 1px solid #0c305c;
+      background-color: white;
+      color: #0c305c;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    
+    .pagination button:hover {
+      background-color: #0c305c;
+      color: white;
+    }
+    
+    .pagination button.active {
+      background-color: #0c305c;
+      color: white;
+    }
+    
+    .pagination button:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+    
+    .export-buttons {
+      margin: 10px 0;
+    }
+    
+    .export-buttons button {
+      margin-right: 10px;
+      padding: 8px 16px;
+      background-color: #28a745;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+    
+    .export-buttons button:hover {
+      background-color: #218838;
+    }
+  </style>
+</head>
+<body>
+  <header class="toolbar">
+    <img src="/static/images/elementurelogo.png" alt="Elementure Logo" class="logo" />
+    <h1>AQUESA DATA MONITOR</h1>
+  </header>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/fetch">Fetch Data</a></li>
+        <li><a href="/data-table">Data Table</a></li>
+        <li><a href="/duplicates">Duplicate</a></li>
+        <li><a href="/missing-data">Missing</a></li>
+        <li><a href="/device-status">Device Status</a></li>
+        <li><a href="/all-device-status">All Device Status</a></li>
+        <li><a href="/battery-status">Battery Status</a></li>
+        <li><a href="/email-scheduler">Email Scheduler</a></li>
+
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="container">
+        <h2>Data Table View</h2>
+        
+        <form id="dataForm">
+          <label for="device_id">Device ID:</label>
+          <input type="text" id="device_id" required placeholder="Enter device ID">
+          
+          <label for="start_date">Start Date(YYYY-MM-DD HH:MM):</label>
+          <input type="text" id="start_date" name="start_date" required />
+
+          
+          <label for="end_date">End Date(YYYY-MM-DD HH:MM):</label>
+          <input type="text" id="end_date" name="end_date" required />
+
+          
+          <label for="page_size">Records per page:</label>
+          <select id="page_size">
+            <option value="50">50</option>
+            <option value="100" selected>100</option>
+            <option value="200">200</option>
+            <option value="500">500</option>
+          </select>
+          
+          <button type="submit">Load Data</button>
+        </form>
+
+        <div id="result"></div>
+        
+        <div id="tableContainer" style="display: none;">
+          <div class="table-info">
+            <div>
+              <strong>Total Records:</strong> <span id="totalRecords">0</span> |
+              <strong>Showing:</strong> <span id="showingRecords">0</span> |
+              <strong>Page:</strong> <span id="currentPage">1</span> of <span id="totalPages">1</span>
+            </div>
+            <div class="export-buttons">
+              <button onclick="exportToCSV()">📊 Export CSV</button>
+              <button onclick="exportToJSON()">📄 Export JSON</button>
+            </div>
+          </div>
+          
+          <div class="table-container">
+            <table class="data-table" id="dataTable">
+              <thead>
+                <tr>
+                  <th>Device ID</th>
+                  <th>Device Time</th>
+                  <th>ETM</th>
+                  <th>CSM</th>
+                  <th>Battery Voltage</th>
+                  <th>Battery Status</th>
+                </tr>
+              </thead>
+              <tbody id="tableBody">
+                <!-- Data will be inserted here -->
+              </tbody>
+            </table>
+          </div>
+          
+          <div class="pagination" id="pagination">
+            <!-- Pagination buttons will be inserted here -->
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="/static/js/script_data_table.js"></script>
+</body>
+</html>

@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Device Status</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <header class="toolbar">
+    <img src="/static/images/elementurelogo.png" alt="Elementure Logo" class="logo" />
+    <h1>AQUESA DATA MONITOR</h1>
+  </header>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/fetch">Fetch Data</a></li>
+        <li><a href="/data-table">Data Table</a></li>
+        <li><a href="/duplicates">Duplicate</a></li>
+        <li><a href="/missing-data">Missing</a></li>
+        <li><a href="/device-status">Device Status</a></li>
+        <li><a href="/all-device-status">All Device Status</a></li>
+        <li><a href="/battery-status">Battery Status</a></li>
+        <li><a href="/email-scheduler">Email Scheduler</a></li>
+
+
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="container">
+        <h2>Device Status</h2>
+
+        <div style="margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px;">
+          <h3 style="margin-top: 0; color: #0c305c;">📋 How to Use</h3>
+          <p>Enter a device ID to check its current status. You can use either format:</p>
+          <ul>
+            <li><strong>UUID format:</strong> 6eb8e219-36ba-496e-b0a1-91577cee61bf</li>
+            <li><strong>UUID format:</strong> b175f67b-e665-49fc-b215-8d5bcb9d1597</li>
+            <li><strong>String format:</strong> Any device ID from your database</li>
+          </ul>
+          <p><em>Tip: You can find device IDs from the "All Device Status" page.</em></p>
+
+          <div style="margin-top: 10px;">
+            <strong>Quick Test:</strong>
+            <button type="button" onclick="document.getElementById('device_id').value='6eb8e219-36ba-496e-b0a1-91577cee61bf'" style="margin-left: 10px; padding: 5px 10px; font-size: 0.8em;">Use Sample Device 1</button>
+            <button type="button" onclick="document.getElementById('device_id').value='b175f67b-e665-49fc-b215-8d5bcb9d1597'" style="margin-left: 5px; padding: 5px 10px; font-size: 0.8em;">Use Sample Device 2</button>
+          </div>
+        </div>
+
+        <form id="dupForm">
+          <label for="device_id">Device ID:</label>
+          <input type="text" id="device_id" required placeholder="Enter device ID (UUID or string format)">
+          <button type="submit">Check Status</button>
+        </form>
+
+
+        <div id="result" style="margin-top:20px;"></div>
+
+      </div>
+    </main>
+  </div>
+  <script src="/static/js/script_status.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Email Scheduler</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/static/css/styles.css" />
+</head>
+<body>
+  <header class="toolbar">
+    <img src="/static/images/elementurelogo.png" alt="Elementure Logo" class="logo" />
+    <h1>AQUESA DATA MONITOR</h1>
+  </header>
+
+  <div class="app-container">
+    <aside class="sidebar">
+      <h2>Dashboard</h2>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/fetch">Fetch Data</a></li>
+        <li><a href="/data-table">Data Table</a></li>
+        <li><a href="/duplicates">Duplicate</a></li>
+        <li><a href="/missing-data">Missing</a></li>
+        <li><a href="/device-status">Device Status</a></li>
+        <li><a href="/all-device-status">All Device Status</a></li>
+        <li><a href="/battery-status">Battery Status</a></li>
+        <li><a href="/email-scheduler">Email Scheduler</a></li>
+      </ul>
+    </aside>
+
+    <main class="main-content">
+      <div class="container">
+        <h2>📧 Email Scheduler Status</h2>
+        
+        <div style="margin-bottom: 20px;">
+          <p>Monitor and control the automated email reporting system.</p>
+        </div>
+
+        <div id="schedulerStatus" style="margin-bottom: 30px;">
+          <button onclick="loadSchedulerStatus()" style="margin-bottom: 15px;">🔄 Refresh Status</button>
+          <div id="statusDisplay">
+            <p>⏳ Loading scheduler status...</p>
+          </div>
+        </div>
+
+        <div style="margin-bottom: 30px; padding: 20px; background-color: #f8f9fa; border-radius: 8px;">
+          <h3 style="margin-top: 0; color: #0c305c;">🧪 Test Email Sending</h3>
+          <p>Send test emails to verify the system is working correctly.</p>
+          
+          <div style="margin-bottom: 15px;">
+            <button onclick="sendTestEmailAll()" style="background-color: #28a745; margin-right: 10px;">📧 Send Test Email to All Devices</button>
+            <button onclick="sendTestEmailSingle()" style="background-color: #17a2b8;">📧 Send Test Email to Single Device</button>
+          </div>
+          
+          <div id="testEmailForm" style="display: none; margin-top: 15px;">
+            <label for="testDeviceId">Device ID:</label>
+            <select id="testDeviceId" style="margin-left: 10px; margin-right: 10px;">
+              <!-- Options will be populated dynamically -->
+            </select>
+            <button onclick="sendTestEmailToDevice()" style="background-color: #ffc107;">Send Test</button>
+            <button onclick="cancelTestEmail()" style="background-color: #6c757d; margin-left: 10px;">Cancel</button>
+          </div>
+          
+          <div id="testEmailResult" style="margin-top: 15px;"></div>
+        </div>
+
+        <div style="padding: 20px; background-color: #e8f4f8; border-radius: 8px;">
+          <h3 style="margin-top: 0; color: #0c305c;">ℹ️ How Email Scheduling Works</h3>
+          <ul>
+            <li><strong>Automatic Reports:</strong> Sent daily at the configured time</li>
+            <li><strong>Content:</strong> Includes charts, battery status, and CSV data</li>
+            <li><strong>Recipients:</strong> Configured in environment variables</li>
+            <li><strong>Data Period:</strong> Last 24 hours of device data</li>
+          </ul>
+        </div>
+      </div>
+    </main>
+  </div>
+  
+  <script src="/static/js/script_email_scheduler.js"></script>
+</body>
+</html>
