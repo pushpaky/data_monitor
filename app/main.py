@@ -24,12 +24,8 @@ from pymongo import MongoClient
 from bson import Binary, UuidRepresentation
 import matplotlib
 
-
 import smtplib
 from email.message import EmailMessage
-
-# import matplotlib
-
 
 from .fetch_data import get_data_from_mongodb
 from .duplicates import find_duplicates
